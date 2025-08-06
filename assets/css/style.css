@@ -7648,3 +7648,9 @@ textarea.form-control {
     .search-button:hover {
       background-color: #1b91c7;
     }
+
+    .faq-heading {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
