@@ -16,6 +16,14 @@
   <link rel="stylesheet" href="../../../use.fontawesome.com/releases/v5.15.1/css/all.css">
   <link rel="stylesheet" href="assets/css/libraries.css">
   <link rel="stylesheet" href="assets/css/style.css">
+   <!-- Tailwind CSS CDN -->
+        
+        <!-- intl-tel-input CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"/>
+
+        <!-- intl-tel-input JS -->
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 
 <body>
@@ -330,9 +338,9 @@
                   <!-- /.col-lg-6 -->
                   <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <i class="icon-phone form-group-icon"></i>
+                      <!-- <i class="icon-phone form-group-icon"></i> -->
                       <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
-                        name="contact-phone" required>
+                        name="contact-Phone" required>
                     </div>
                   </div><!-- /.col-lg-6 -->
                   <!-- <div class="col-sm-6 col-md-6 col-lg-6">
@@ -525,7 +533,7 @@
     <!-- ========================
       Footer
     ========================== -->
-   <footer class="footer">
+    <footer class="footer">
         <div class="footer-primary">
           <div class="container">
             <div class="row">
@@ -576,9 +584,9 @@
                   <h6 class="footer-widget__title">Links</h6>
                   <nav>
                     <ul class="list-unstyled">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="about-us.html">About us</a></li>
+                      <li><a href="about-us.html">About Us</a></li>
                       <li><a href="shop.html">Shop</a></li>
+                      <li><a href="contact-us.html">Contact Us</a></li>
                       <li><a href="faqs.html">FAQs</a></li>
                       <!-- <li><a href="#">Appointments</a></li> -->
                     </ul>
@@ -638,16 +646,16 @@
             <div class="row align-items-center">
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <span class="fz-14"
-                  >&copy; Urbanmedex.All Rights Reserved. </span
+                  >&copy;  Designed and Developed by SaturnX Digital Solutions </span
                 >
-                <!-- <a
+                <a
                   class="fz-14 color-primary"
-                  href="http://themeforest.net/user/7oroof"
-                  >7oroof.com</a
-                > -->
+                  href="https://saturnxdigital.com/"
+                  >saturnxdigital</a
+                >
               </div>
               <!-- /.col-lg-6 -->
-              <div class="col-sm-12 col-md-6 col-lg-6">
+              <!-- <div class="col-sm-12 col-md-6 col-lg-6">
                 <nav>
                   <ul
                     class="list-unstyled footer__copyright-links d-flex flex-wrap justify-content-end mb-0"
@@ -657,7 +665,7 @@
                     <li><a href="#">Cookies</a></li>
                   </ul>
                 </nav>
-              </div>
+              </div> -->
               <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
@@ -665,7 +673,8 @@
           <!-- /.container -->
         </div>
         <!-- /.footer-secondary -->
-      </footer><!-- /.Footer -->
+      </footer>
+      <!-- /.Footer -->
     <button id="scrollTopBtn"><i class="fas fa-long-arrow-alt-up"></i></button>
     
   </div><!-- /.wrapper -->
@@ -683,6 +692,14 @@
       });
     </script>
 
+  <script>  
+    const phoneInputField = document.querySelector("#contact-Phone");
+    window.intlTelInput(phoneInputField, {
+      initialCountry: "in",  // 'in' stands for India
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      preferredCountries: ["in", "us", "gb", "de", "fr"],
+    });
+    </script>
 </body>
 
 
