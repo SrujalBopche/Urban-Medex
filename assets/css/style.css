@@ -7654,3 +7654,55 @@ textarea.form-control {
       margin-bottom: 20px;
       font-weight: bold;
     }
+
+
+    
+  .carousel {
+    position: relative;
+    width: 100%;
+    /* max-width: 900px; */
+    overflow: hidden;
+    border-radius: 10px;
+    /* background: white; */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 30px;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slides img {
+    width: 350px;
+    height: 250px;
+    margin-right: 10px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Hover zoom effect */
+  .slides img:hover {
+    transform: scale(2.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 5;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 10;
+    border-radius: 50%;
+  }
+
+  .arrow.left { left: 10px; }
+  .arrow.right { right: 10px; }
