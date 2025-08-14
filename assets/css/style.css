@@ -979,8 +979,10 @@ textarea {
 
 .bg-img {
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
+
 }
+
 
 .background-size-auto {
   background-size: auto !important;
@@ -1217,6 +1219,7 @@ h6 {
 .page-title {
   padding-top: 110px;
   padding-bottom: 120px;
+  height: 80vh;
 }
 .page-title .breadcrumb-item a,
 .page-title .breadcrumb-item.active,
@@ -4063,6 +4066,49 @@ input[type=radio] {
     padding: 30px 10px;
   }
 }
+
+.slider {
+  padding: 0;
+}
+
+.slide__content {
+  max-width: 550px;
+}
+
+.search-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background: #23abe2;
+  color: #0e204d;
+  border: none;
+  border-radius: 0 5px 5px 0;
+}
+.slider-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 550px;
+}
+
+.slider-image img {
+  max-width: 100%;
+  height: 75vh;        /* Keeps original ratio */
+  border-radius: 5%;   /* Optional rounded corners */
+  display: block;      /* Removes extra gaps */
+}
+
+
 /*--------------------------
       Video
 --------------------------*/
@@ -4935,6 +4981,9 @@ input[type=radio] {
     line-height: 20px;
   }
 }
+
+
+
 /*---------------------------
     Client
 ---------------------------*/
@@ -7032,6 +7081,8 @@ textarea.form-control {
 }
 .product__img img {
   border-radius: 6px;
+  width: 100%;
+  height: 100%;    
 }
 
 /* Shop Single */
@@ -7656,18 +7707,18 @@ textarea.form-control {
     }
 
 
-    
+/*     
   .carousel {
     position: relative;
     width: 100%;
-    /* max-width: 900px; */
+    max-width: 900px;
     overflow: hidden;
     border-radius: 10px;
-    /* background: white; */
+    background: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     padding: 30px;
-  }
-
+  } */
+/* 
   .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -7681,10 +7732,10 @@ textarea.form-control {
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-  }
+  } */
 
   /* Hover zoom effect */
-  .slides img:hover {
+  /* .slides img:hover {
     transform: scale(2.1);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     z-index: 5;
@@ -7705,4 +7756,7 @@ textarea.form-control {
   }
 
   .arrow.left { left: 10px; }
-  .arrow.right { right: 10px; }
+  .arrow.right { right: 10px; } */
+
+
+  
