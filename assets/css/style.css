@@ -247,7 +247,7 @@ textarea {
   position: relative;
   width: 50px;
   height: 2px;
-  background-color: #e7ebef;
+  background-color: #bacadb;
 }
 .divider-sm {
   width: 20px;
@@ -1053,7 +1053,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #0e204d;
+  color: #1b3475;
   font-family: "Quicksand", sans-serif;
   text-transform: capitalize;
   font-weight: 700;
