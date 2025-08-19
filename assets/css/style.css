@@ -1126,9 +1126,11 @@ h6 {
 }
 .heading-light .heading__title,
 .heading-light .heading__desc {
-  color: #ffffff;
+  color: #f7f4f4;
 }
-
+.text-color {
+  color: #000000;
+}
 .text-block__title {
   font-size: 25px;
   margin-bottom: 17px;
