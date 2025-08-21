@@ -3664,7 +3664,7 @@ input[type=radio] {
   left: 50px;
   right: 50px;
   height: 5px;
-  background-color: #23abe2;
+  background-color: transparent;
 }
 .footer [class*=footer-widget] {
   margin-bottom: 30px;
