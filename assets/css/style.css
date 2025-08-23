@@ -2426,6 +2426,8 @@ input[type=radio] {
 /*----------------------------
       Navbar & Header
 -----------------------------*/
+
+
 .header {
   position: relative;
   z-index: 1000;
@@ -2437,9 +2439,7 @@ input[type=radio] {
   height: 100px;
   max-height: 100px;
   background-color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 9999; 
+  
   /*  dropdown-menu  */
 }
 .navbar > .container,
@@ -3162,6 +3162,26 @@ input[type=radio] {
 }
 /* Mobile and Tablets */
 @media (max-width: 991px) {
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 100px;
+    background: #fff; /* ensure it covers content behind */
+  }
+
+  body {
+    padding-top: 60px; /* same as navbar height */
+  }
+
+  .navbar-brand img{
+    height: 70px;
+    width: auto;
+    margin-top: -10px ;
+
+  }
   .navbar .navbar-toggler {
     position: absolute;
     right: 15px;
