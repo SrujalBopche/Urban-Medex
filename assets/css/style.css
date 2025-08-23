@@ -2433,10 +2433,13 @@ input[type=radio] {
 
 /* Navbar */
 .navbar {
-  padding: 0;
+  padding: 2px;
   height: 100px;
   max-height: 100px;
   background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 9999; 
   /*  dropdown-menu  */
 }
 .navbar > .container,
@@ -2453,7 +2456,7 @@ input[type=radio] {
   display: none;
 }
 .navbar .navbar-toggler {
-  padding: 0;
+  padding: 2;
   border: none;
   border-radius: 0;
   width: 23px;
@@ -3523,6 +3526,7 @@ input[type=radio] {
     transform: translateY(0);
   }
 }
+
 /*----------------------
     Accordions
 ------------------------*/

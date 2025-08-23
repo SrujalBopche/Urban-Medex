@@ -32,6 +32,33 @@
         <!-- intl-tel-input JS -->
         <!-- <script src="https://cdn.tailwindcss.com"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+        <style>
+          .suggestions {
+            position: absolute;
+            background: #fff;
+            /* border: 1px solid #a02b2b; */
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            z-index: 1000;
+            border-radius: 4px;
+          }
+
+          .suggestions div {
+            padding: 8px;
+            cursor: pointer;
+          }
+
+          .suggestions div:hover {
+            background: transparent
+          }
+
+          .search-container {
+            position: relative;
+            max-width: 800px;
+          }
+        </style>
         
       </head>
       
@@ -328,11 +355,12 @@
           </h4>
 
           <form class="header-topbar__search" onsubmit="redirectSearch(); return false;">
-            <div class="search-container">
-              <input type="text" id="productSearch" class="search-input" placeholder="Search medicines...">
-              <button type="submit" class="search-button">Search</button>
-            </div>
-          </form>
+          <div class="search-container">
+            <input type="text" id="productSearch" class="search-input" placeholder="Search medicines..." onkeyup="showSuggestions(this.value)">
+            <button type="submit" class="search-button">Search</button>
+            <div id="suggestionsBox" class="suggestions"></div>
+          </div>
+        </form>
 
 
           <p class="slide__desc" style="color: #0e204d;">
@@ -2391,12 +2419,12 @@
       "kamagra chewable Tablet (strawberry with lemon)": "Single-Kamagra/DWX0024.html",
       "kamagra chewable Tablet (4 flavours)": "Single-Kamagra/DWX0027.html",
       "kamagra oral jelly 100": "Single-Kamagra/DWX0166.html",
-      "spuer kamagra": "Single-Kamagra/DWX9675.html",
+      "super kamagra": "Single-Kamagra/DWX9675.html",
 
       // -------Modafinil And Armodafinil ------
-        "Modaheal 200": "Single-Modafinil and Armodafinil/DWX0127.html",
-        "Armodafinil Tablets Artvigil-150": "Single-Modafinil and Armodafinil/DWX9192.html",
-        "Modvigil 200mg": "Single-Modafinil and Armodafinil/Modvigil-200.html",
+        "modaheal 200": "Single-Modafinil and Armodafinil/DWX0127.html",
+        "armodafinil Tablets Artvigil-150": "Single-Modafinil and Armodafinil/DWX9192.html",
+        "modvigil 200mg": "Single-Modafinil and Armodafinil/Modvigil-200.html",
 
         // ------Other Medicines-----
         "telmaheal-80": "Single-Others/DWX9911.html",
@@ -2544,17 +2572,43 @@
         "mounjaro 5mg vial": "Single-WeightLoss/Tirzepatide-Injection-5-0.5.html",
 
   };
-  function redirectSearch() {
-    let input = document.getElementById("productSearch").value.toLowerCase().trim();
+      function redirectSearch() {
+        let input = document.getElementById("productSearch").value.toLowerCase().trim();
+        if (productMap[input]) {
+          window.location.href = productMap[input];
+        } else {
+          alert("Medicine not found!");
+        }
+      }
 
-    if (productMap[input]) {
-      // Redirect to that medicine page
-      window.location.href = productMap[input];
-    } else {
-      alert("Medicine not found!");
-    }
-  }
-</script>
+      function showSuggestions(query) {
+        const suggestionsBox = document.getElementById("suggestionsBox");
+        suggestionsBox.innerHTML = "";
+
+        if (!query) return;
+
+        let matches = Object.keys(productMap).filter(product =>
+          product.toLowerCase().includes(query.toLowerCase())
+        );
+
+        matches.slice(0, 8).forEach(match => {  // Limit to 8 suggestions
+          let div = document.createElement("div");
+          div.textContent = match;
+          div.onclick = function() {
+            document.getElementById("productSearch").value = match;
+            suggestionsBox.innerHTML = "";
+          };
+          suggestionsBox.appendChild(div);
+        });
+      }
+
+      // Hide suggestions when clicking outside
+      document.addEventListener("click", function(e) {
+        if (!document.querySelector(".search-container").contains(e.target)) {
+          document.getElementById("suggestionsBox").innerHTML = "";
+        }
+      });
+    </script>
     
 
 </body>
