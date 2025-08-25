@@ -203,6 +203,9 @@
         "mounjaro kwik pen 7.5mg": "Single-WeightLoss/Tirzepatide-7.5.html",
         "mounjaro 2.5mg vial": "Single-WeightLoss/Tirzepatide-Injection-2.5-0.5.html",
         "mounjaro 5mg vial": "Single-WeightLoss/Tirzepatide-Injection-5-0.5.html",
+        
+        
+
 
   };
       function redirectSearch() {

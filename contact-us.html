@@ -319,7 +319,7 @@
         <div class="row">
           <div class="col-12">
             <div class="contact-panel d-flex flex-wrap">
-              <form class="contact-panel__form" method="post" action="https://7oroof.com/demos/medcity/assets/php/contact.php" id="contactForm">
+              <form class="contact-panel__form" method="post" action="https://script.google.com/macros/s/AKfycbyTVs0th-wfMhvD-giEdRpGwpc0xzdkZaP2FyziwL_nrWlpldJ2O_lU8njyQH5gWX3R/exec " id="contactForm">
                 <div class="row">
                   <div class="col-sm-12">
                     <h4 class="contact-panel__title">How Can We Help? </h4>
@@ -363,8 +363,8 @@
                   <div class="col-12">
                     <div class="form-group">
                       <i class="icon-alert form-group-icon"></i>
-                      <textarea class="form-control" placeholder="Message" id="contact-message"
-                        name="contact-message"></textarea>
+                     <textarea class="form-control" placeholder="Message" id="contact-message" name="contact-message"></textarea>
+
                     </div>
                     <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
                       <span>Submit Request</span> <i class="icon-arrow-right"></i>
@@ -715,6 +715,32 @@
       preferredCountries: ["in", "us", "gb", "de", "fr"],
     });
     </script>
+
+ <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // stop normal form submission
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    document.querySelector(".contact-result").innerHTML = 
+      '<div class="alert alert-success mt-3">✅ Thank you! Your inquiry has been submitted.</div>';
+    form.reset(); // clear form
+  })
+  .catch(error => {
+    document.querySelector(".contact-result").innerHTML = 
+      '<div class="alert alert-danger mt-3">❌ Oops! Something went wrong. Try again.</div>';
+    console.error("Error:", error);
+  });
+});
+</script>
+
 </body>
 
 
