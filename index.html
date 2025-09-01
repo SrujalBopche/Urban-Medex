@@ -1774,7 +1774,7 @@
                <form
                 class="contact-panel__form"
                 method="post"
-                action="https://script.google.com/macros/s/AKfycbyTVs0th-wfMhvD-giEdRpGwpc0xzdkZaP2FyziwL_nrWlpldJ2O_lU8njyQH5gWX3R/exec"
+                action="https://script.google.com/macros/s/AKfycbz2pRGy-Py2XJPPHLNPSDMwBQtsBebV8rH8ZEux1s83X_X9yfKx2x7TIFuji8UluB-Q-Q/exec"
                 id="contactForm"
               >
                 <div class="row">
@@ -1818,6 +1818,7 @@
                         class="form-control"
                         placeholder="Phone"
                         name="contact-Phone"
+                        required
                       />
                     </div>
                   </div>
@@ -1835,7 +1836,12 @@
                       />
                     </div>
                   </div>
-
+                  <div class="col-12">
+                    <div class="form-group">
+                      <i class="icon-alert form-group-icon"></i>
+                     <textarea class="form-control" placeholder="Message" id="contact-message" name="contact-message" required></textarea>
+                    </div>
+                </div>
                   <div class="col-12">
                     <button
                       type="submit"
