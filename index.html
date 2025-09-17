@@ -2369,6 +2369,170 @@
       });
       </script>
 
+      <form
+  class="contact-panel__form"
+  method="post"
+  action="https://script.google.com/macros/s/AKfycbx1GMiin30tPoQRTQkZ0fodt9wLIQrnSO5o_ETxWvO1zam3PoWK6w2WMLFpU5WDn13J/exec"
+  id="contactForm"
+>
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="contact-panel__title">Make an Inquiry</h4>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group">
+        <i class="fas fa-user form-group-icon"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          id="contact-name"
+          name="contact-name"
+          required
+        />
+        <small class="error-msg" style="color:red;display:none;"></small>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group">
+        <i class="icon-email form-group-icon"></i>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          id="contact-email"
+          name="contact-email"
+          required
+        />
+        <small class="error-msg" style="color:red;display:none;"></small>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group">
+        <input
+          id="contact-phone"
+          type="tel"
+          class="form-control"
+          placeholder="Phone"
+          name="contact-phone"
+          required
+        />
+        <small class="error-msg" style="color:red;display:none;"></small>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group">
+        <i class="icon-location form-group-icon"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Country"
+          id="location"
+          name="location"
+          required
+        />
+        <small class="error-msg" style="color:red;display:none;"></small>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <i class="icon-alert form-group-icon"></i>
+        <textarea
+          class="form-control"
+          placeholder="Message"
+          id="contact-message"
+          name="contact-message"
+          required
+        ></textarea>
+        <small class="error-msg" style="color:red;display:none;"></small>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button
+        type="submit"
+        class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10"
+      >
+        <span>Submit Request</span>
+        <i class="icon-arrow-right"></i>
+      </button>
+      <div class="contact-result"></div>
+    </div>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const phone = document.getElementById("contact-phone");
+
+  // live restriction: only digits allowed
+  phone.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); // remove non-digits instantly
+  });
+
+  form.addEventListener("submit", function (e) {
+    let isValid = true;
+
+    // reset all error messages
+    document.querySelectorAll(".error-msg").forEach((msg) => {
+      msg.style.display = "none";
+      msg.textContent = "";
+    });
+
+    // Name validation
+    const name = document.getElementById("contact-name");
+    if (name.value.trim().length < 3) {
+      showError(name, "Name must be at least 3 characters long");
+      isValid = false;
+    }
+
+    // Email validation
+    const email = document.getElementById("contact-email");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+      showError(email, "Please enter a valid email address");
+      isValid = false;
+    }
+
+    // Phone validation
+    const phoneRegex = /^\d{10}$/; // only 10 digits
+    if (!phoneRegex.test(phone.value.trim())) {
+      showError(phone, "Please enter a valid 10-digit phone number");
+      isValid = false;
+    }
+
+    // Country validation
+    const country = document.getElementById("location");
+    if (country.value.trim().length < 2) {
+      showError(country, "Country name must be at least 2 characters long");
+      isValid = false;
+    }
+
+    // Message validation
+    const message = document.getElementById("contact-message");
+    if (message.value.trim().length < 10) {
+      showError(message, "Message must be at least 10 characters long");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      e.preventDefault(); // stop form submission
+    }
+  });
+
+  function showError(input, message) {
+    const errorMsg = input.parentElement.querySelector(".error-msg");
+    errorMsg.textContent = message;
+    errorMsg.style.display = "block";
+  }
+</script>
+
+
   </body>
 
   <!-- Mirrored from 7oroof.com/demos/medcity/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2025 10:57:38 GMT -->
